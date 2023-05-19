@@ -7,12 +7,15 @@
 body {
     margin: 0;
     font-family: roboto;
-    background-color: rgb(230, 230, 230);
+    color: white;
+
 }
 
 #pokedex {
     display: flex;
     flex-wrap: wrap;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
 }
 
 .pokemonsCard {
@@ -24,6 +27,7 @@ body {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    box-shadow: 8px 8px 22px black;
 }
 
 
@@ -36,13 +40,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 
 }
 
 #typeInfos {
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
 }
+
 
 #smallImg {
     max-width: 100px;
@@ -54,4 +61,22 @@ body {
 
 h1 {
     font-size: 20px;
+}
+
+
+#colorBackground {
+    background-color: red;
+    color: white;
+    padding: 24px;
+    width: 200px;
+    margin: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.centerPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

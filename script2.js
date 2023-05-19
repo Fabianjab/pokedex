@@ -1,7 +1,16 @@
 let currentPokemon;
 
-let grass = style.color = "green";
-
+let colorTypes = {
+    'fire': 'red',
+    'water': 'blue',
+    'grass': 'green',
+    'rock': 'grey',
+    'normal': '#ededed',
+    'poison': 'purple',
+    'bug': '#a89332',
+    'ghost': '#3d667a',
+    'electric': '#f7ff00'
+}
 
 async function loadPokemon() {
 
@@ -25,17 +34,10 @@ async function renderPokemonInfo(index, i) {
     let response2 = await fetch(url1);
     newURL = await response2.json();
     console.log('1. Test', newURL);
-
-    if (${newURL['types'][0]['type']['name']} == grass) 
-    { class:"pokemonCard".style.background-color = "green";
-        } else {
-        
-    },
-
-
-
+   
     document.getElementById('pokedex').innerHTML += `
-    <div class="pokemonsCard" id="pokemons${i}">
+   <div class="pokemonsCard" id="colorBackground${i}">
+    <div class="centerPokemon" id="pokemons${i}">
         <div id="headerRow">
             <h1> ${newURL['name']} </h1>
             <div id="number"> Nr. ${newURL['id']} </div>
@@ -46,6 +48,9 @@ async function renderPokemonInfo(index, i) {
             <div id="type">${newURL['types'][1]['type']['name']} </div> 
         </div>
     </div>
+    </div>
     `
+    document.getElementById(`colorBackground${i}`).style.background = colorTypes[newURL['types'][0]['type']['name']];
+
 }
 
