@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'roboto';
+    src: url('/fonts/Roboto-Regular.ttf');
+}
+
+
+body {
+    margin: 0;
+    font-family: roboto;
+    background-color: rgb(230, 230, 230);
+}
+
+#pokedex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokemonsCard {
+    background-color: red;
+    color: white;
+    padding: 24px;
+    width: 200px;
+    margin: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#pokemonList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#typeInfos {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#smallImg {
+    max-width: 100px;
+}
+
+#smallImg:hover {
+    rotate: -10deg;
+}
+
+h1 {
+    font-size: 20px;
+}
