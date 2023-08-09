@@ -2,13 +2,13 @@ let currentPokemon;
 let offset = 20;
 
 let colorTypes = {
-    'fire': '#b50000',
-    'water': 'blue',
-    'grass': 'green',
+    'fire': 'linear-gradient(123deg, rgb(101 0 0), rgb(243 76 76 / 80%), rgb(255 0 0))',
+    'water': 'linear-gradient(123deg, rgb(2 4 105), rgb(76 185 243 / 80%), rgb(0 112 255))',
+    'grass': 'linear-gradient(123deg, rgb(5 101 0), rgb(76 243 136 / 80%), rgb(0 255 34))',
     'rock': 'grey',
-    'normal': '#ededed',
-    'poison': 'purple',
-    'bug': '#a89332',
+    'normal': 'linear-gradient(123deg, rgb(177 167 167), rgb(251 251 251 / 80%), rgb(245 240 218))',
+    'poison': 'linear-gradient(123deg, rgb(80 0 119), rgb(219 127 229 / 80%), rgb(154 32 213))',
+    'bug': 'linear-gradient(123deg, rgb(105 84 2), rgb(239 243 76 / 80%), rgb(255 202 0))',
     'ghost': '#3d667a',
     'electric': '#D9D326'
 }
@@ -39,20 +39,20 @@ async function renderPokemonInfo(index, i) {
     <button onclick="specificInfos('${index['url']}', ${i})" class="pokemonsCard" id="colorBackground${i}">
         <div class="centerPokemon" id="pokemons${i}">
             <div id="headerRow">
-                <ul id="myUL">
-                    <li>
+                <div id="myUL">
                         <a href="#">
                             <h2>${newURL['name']}</h2> 
                         </a> 
-                    </li>
                     <div id="number">Nr. ${newURL['id']}</div>
-                </ul>
+                </div>
             </div>
-            <img id="smallImg" src=${newURL['sprites']['front_shiny']}>
-            <div id="typeInfos${i}">
-                <div id="type"><b>type:</b>&nbsp; ${renderTypes(i)}</div>
-            </div>
+            <img id="smallImg" src=${newURL['sprites']['other']['dream_world']['front_default']}>
         </div>
+        <div class="style_types">
+        <div id="typeInfos${i}">
+            <div id="type"> ${renderTypes(i)}</div>
+        </div>
+    </div>
     </button>
     `
     document.getElementById(`colorBackground${i}`).style.background = colorTypes[newURL['types'][0]['type']['name']];
@@ -116,16 +116,20 @@ function swipeLeft(index, i) {
     if (i > 0) {
         specificInfos(currentPokemon['results'][i - 1]['url'], i - 1);
     } else {
-        document.getElementById('left').style.display = "none";
-
+        // Gehe zum letzten Pokemon im Array
+        specificInfos(currentPokemon['results'][currentPokemon['results'].length - 1]['url'], currentPokemon['results'].length - 1);
     }
 }
 
 function swipeRight(index, i) {
-    if (i < currentPokemon['results'].length) {
+    if (i < currentPokemon['results'].length - 1) {
         specificInfos(currentPokemon['results'][i + 1]['url'], i + 1);
+    } else {
+        // Gehe zum ersten Pokemon im Array
+        specificInfos(currentPokemon['results'][0]['url'], 0);
     }
 }
+
 
 function loadMore() {
     offset += 20;
