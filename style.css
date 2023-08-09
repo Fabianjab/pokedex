@@ -15,19 +15,33 @@ body {
     align-items: center;
 }
 
-a {
-    text-decoration: none;
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 160px;
+    background-color: #f78fb3;
+    background-image: linear-gradient(to right, #f78fb3, #91d5e6);
+    position: sticky;
+    top: 0;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 0.6);
+    width: 100vw;
+    max-width: 100%;
+    z-index: 5;
 }
 
-ul {
-    list-style: none;
+h1 {
+    font-size: 20px;
 }
 
 h2 {
     text-decoration: none;
     color: white;
     font-size: 24px;
+}
 
+a {
+    text-decoration: none;
 }
 
 #pokedex {
@@ -64,7 +78,6 @@ h2 {
     align-items: center;
     margin-right: 15px;
     text-shadow: #9A0101 1px 0 3px;
-
 }
 
 #typeInfos {
@@ -80,10 +93,6 @@ h2 {
 
 #smallImg:hover {
     rotate: -10deg;
-}
-
-h1 {
-    font-size: 20px;
 }
 
 #colorBackground {
@@ -148,21 +157,6 @@ button {
     padding-bottom: 20px;
 }
 
-header {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 160px;
-    background-color: #f78fb3;
-    background-image: linear-gradient(to right, #f78fb3, #91d5e6);
-    position: sticky;
-    top: 0;
-    box-shadow: 0 5px 10px rgb(0 0 0 / 0.6);
-    width: 100vw;
-    max-width: 100%;
-    z-index: 5;
-}
-
 #search-field {
     position: absolute;
     right: 200px;
@@ -218,6 +212,34 @@ input {
     margin-top: 10px;
 }
 
+::placeholder {
+    color: rgba(255, 255, 255, 0.763);
+    opacity: 1;
+    padding-left: 5px;
+}
+
+#pokemon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#loadButton {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.304);
+    padding: 15px;
+    justify-content: center;
+    width: 240px;
+    margin-bottom: 20px;
+}
+
+#loadButton:hover {
+    background-color: rgba(0, 0, 0, 0.736);
+}
+
 @media (max-width: 1100px) {
     #search-field {
         position: unset;
@@ -239,24 +261,6 @@ input {
     }
 }
 
-#loadButton {
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.304);
-    padding: 15px;
-    justify-content: center;
-    width: 240px;
-    margin-bottom: 20px;
-}
-
-#loadButton:hover {
-    background-color: rgba(0, 0, 0, 0.736);
-
-}
-
-
 @keyframes shimmer {
     0% {
         -webkit-mask-position: left;
@@ -265,18 +269,4 @@ input {
     100% {
         -webkit-mask-position: right;
     }
-}
-
-
-::placeholder {
-    color: rgba(255, 255, 255, 0.763);
-    opacity: 1;
-    padding-left: 5px;
-}
-
-
-#pokemon {
-    position: absolute;
-    top: 0;
-    left: 0;
 }

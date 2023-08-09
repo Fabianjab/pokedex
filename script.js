@@ -22,7 +22,6 @@ async function loadPokemon() {
 
     for (let i = 0; i < currentPokemon['results'].length; i++) {
         const specialPokemon = currentPokemon['results'][i];
-
         await renderPokemonInfo(specialPokemon, i);
     }
     search();
@@ -116,7 +115,6 @@ function swipeLeft(index, i) {
     if (i > 0) {
         specificInfos(currentPokemon['results'][i - 1]['url'], i - 1);
     } else {
-        // Gehe zum letzten Pokemon im Array
         specificInfos(currentPokemon['results'][currentPokemon['results'].length - 1]['url'], currentPokemon['results'].length - 1);
     }
 }
@@ -125,11 +123,9 @@ function swipeRight(index, i) {
     if (i < currentPokemon['results'].length - 1) {
         specificInfos(currentPokemon['results'][i + 1]['url'], i + 1);
     } else {
-        // Gehe zum ersten Pokemon im Array
         specificInfos(currentPokemon['results'][0]['url'], 0);
     }
 }
-
 
 function loadMore() {
     offset += 20;
