@@ -250,15 +250,48 @@ input {
     header {
         flex-direction: column;
     }
+
+    #cardDesign {
+        margin-top: 125px;
+    }
 }
 
 @media(max-width: 700px) {
     header {
         display: flex;
-        gap: 30px;
+        gap: 10px;
         flex-direction: column;
-        height: 200px;
+        height: 180px;
     }
+
+    #cardDesign {
+        padding-top: 10px;
+        height: 320px;
+        max-width: 400px;
+        width: auto;
+    }
+
+    #bigImgSize {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 400px) {
+    .pokemonsCard {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+}
+
+
+@media (max-width: 315px) {
+    .pokemonsCard {
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
 }
 
 @keyframes shimmer {
